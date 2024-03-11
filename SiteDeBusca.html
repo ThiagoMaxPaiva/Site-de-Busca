@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabeçalho com Busca e Seleção de Categoria</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="shortcut icon" type="imagex/png" href="LogoCabeçalho-_1_.ico">
+</head>
+<body>
+
+    <header>
+        <div id="nomeSite_btnMenu">
+
+            <div id="divMenu">
+                <ul id="Menu">
+                    <div id="btnMenu">
+                        <img id="imgMenu" src="https://i.ibb.co/BLcYVL3/hamburger-1.png" alt="hamburger-1" border="0">
+                        <li id="dropdownMenu"><a href="#">Menu</a></li>
+                    </div>
+                    <ul id="Categoria">
+                        <li class="dropdown"><a href="#">Celulares</a></li>
+                        <li class="dropdown"><a href="#">TVs</a></li>
+                        <li class="dropdown"><a href="#">Notebooks</a></li>
+                        <li class="dropdown"><a href="#">Lavadouras</a></li>
+                        <li class="dropdown"><a href="#">Ar-condicionado</a></li>
+                    </ul>
+                </ul>
+            </div>
+            
+            <div id="nomeSite">
+                <img id="Logo" src="https://i.ibb.co/4Js9pFg/Logo-Branca.png" alt="Logo-Branca" border="0">
+                <h1>Nome do Site</h1>
+            </div>
+        </div>
+        <div class="search-container">
+            <form action="#" method="get">
+                <div id="divBusca">
+                    <label id="campoBusca" for="campoBusca">Buscar:</label>
+                    <input id="textBusca" type="text" id="campoBusca" name="q" placeholder="Digite aqui" maxlength="80"
+                    style="top: -5px; left: 10px;">
+                </div>
+                
+                <div id="divCategoria">
+                <label id="textCategoria" for="categoria">Categoria:</label>
+                <select id="categoria" name="categoria">
+                    <option value="todas">Todas</option>
+                    <option value="categoria1">Categoria 1</option>
+                    <option value="categoria2">Categoria 2</option>
+                    <option value="categoria3">categoria 3</option>
+                    <!-- Adicione mais opções de categoria conforme necessário -->
+                </select>
+
+                <input id="btnBusca" type="submit" value="Buscar">
+                </div>
+            </form>
+        </div>
+        <div id="Login_CEP">
+            <div id="Login">
+                <img id="imgLogin" src="https://i.ibb.co/XWmbxmS/Avatar-1.png" alt="Avatar-1" border="0">
+                <input id="btnLogin" type="button" value="Entrar">
+            </div>
+            <div id="divCEP">
+                <input id="btnCEP" type="button" value="Informe seu CEP">
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- Restante do conteúdo do site aqui -->
+
+</body>
+</html>
