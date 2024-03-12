@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabeçalho com Busca e Seleção de Categoria</title>
+    <title>site de buscar</title>
+    <link rel="Icon" type="imagem/x-icon" href="https://i.ibb.co/MNXz0ST/Logo-Branca.png">
     <link rel="stylesheet" href="Style.css">
     <link rel="shortcut icon" type="imagex/png" href="LogoCabeçalho-_1_.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
-
+    
     <header>
         <div id="nomeSite_btnMenu">
 
@@ -67,7 +70,38 @@
     </header>
 
     
+    
     <!-- Restante do conteúdo do site aqui -->
+    <ul style="text-align: center; ">
+      
+    <h1> <img src="https://i.ibb.co/ZfNRbvr/54f6e71e-ace9-4cef-b131-7646b6b1b766-removebg-preview.png" alt="" style="width: 100px; height: 100px; padding: 2px;">Aproveite o seu <br> melhor site de busca</h1>
+    <h4>melhor comparações </h4>
+    </ul>
+
+    <div class="carousel-container">
+        <div class="category">aparelhos</div>
+        <div class="category"> domesticos</div>
+        <div class="category">moveis</div>
+        <div class="category">geladeira</div>
+        <div class="category">Notebooks</div>
+        <div class="category">ultilidades</div>
+        <!-- Adicione mais categorias conforme necessário -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel-container').slick({
+                slidesToShow: 4, // Número de categorias visíveis ao mesmo tempo
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000, // Tempo de exibição de cada categoria em milissegundos
+                infinite: true
+            });
+        });
+    </script>
+   
 
 </body>
 </html>
