@@ -202,6 +202,72 @@ input[type="submit"] {
     
 }
 
+#escolhas{
+    background-color: #ee7809;
+    padding: 10px;
+    border: 1px solid  #ee7809;
+    text-align: center;
+
+}
+.slideshow-container {
+    margin: auto;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #e6810f;
+}
+
+
+.carousel-container {
+    max-width: 600px;
+    height: 100px;
+    margin: auto;
+}
+
+.category {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.category:hover {
+    border: #e6810f;
+    font-size: 20px;
+    border: 1px solid #e6810f;
+    border-radius: 5px;
+    
+}
+.mySlides {
+    display: none;
+}
+
+img {
+    width: 100%;
+}
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
 #categoria{
     position: relative;
     top: 5px;
@@ -284,3 +350,4 @@ input[type="submit"] {
 #btnCEP:hover{
     background-color: rgb(231, 231, 231);
 }
+
