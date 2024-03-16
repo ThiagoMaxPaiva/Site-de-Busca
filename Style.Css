@@ -94,7 +94,7 @@ header {
 
 #nomeSite_btnMenu{
     position: relative;
-    right: 10px;
+   
 
     display: flex;
     align-items: center;
@@ -102,9 +102,9 @@ header {
 }
 
 #btnMenu{
-    position: relative;
-    right: 170px;
-
+    position: absolute;
+    width: 5vw;
+    height: 50%;
     
 }
 
@@ -202,6 +202,89 @@ input[type="submit"] {
     
 }
 
+#escolhas{
+    background-color: #ee7809;
+    padding: 10px;
+    border: 1px solid  #ee7809;
+    text-align: center;
+
+}
+.slideshow-container {
+    margin: auto;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #e6810f;
+}
+
+
+.carousel-container {
+    max-width: 600px;
+    margin: auto;
+
+    
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .col {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 100%; /* Garante que as colunas não ultrapassem 100% da largura do contêiner */
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+
+.marcar{
+    margin: auto;
+    display: block;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+img {
+    width: 100%;
+}
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
 #categoria{
     position: relative;
     top: 5px;
@@ -235,6 +318,8 @@ input[type="submit"] {
     align-items: center;
     flex-direction: column;
     gap: 3px;
+
+    width: 1vw;
 }
 
 #Login{
@@ -249,6 +334,14 @@ input[type="submit"] {
 
     width: 120px;
     height: 40px;
+}
+
+.Link-Login{
+    text-decoration: none;
+
+    border: none;
+
+    cursor:pointer;
 }
 
 #Login:hover{
@@ -267,20 +360,30 @@ input[type="submit"] {
     background-color: transparent;
 
     border: 0;
+
+    cursor: pointer;
 }
 
 #btnCEP{
     background: transparent;
     background-color: white;
 
-    width: 120px;
-    height: 25px;
+    width: 86px;
+    height: 1px;
     
     border: 0;
     border-radius: 10px;
+    outline: none;
+
+    color: #333;
 
 }
 
 #btnCEP:hover{
     background-color: rgb(231, 231, 231);
+}
+
+.category-computer{
+    width: 100%;
+    
 }

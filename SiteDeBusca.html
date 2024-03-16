@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabeçalho com Busca e Seleção de Categoria</title>
+    <title>site de buscar</title>
+       <!-- Adicione o link para o arquivo JavaScript do jQuery -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <!-- Adicione o link para o arquivo JavaScript do Slick Carousel -->
+       <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+       
+    <link rel="Icon" type="imagem/x-icon" href="https://i.ibb.co/MNXz0ST/Logo-Branca.png">
     <link rel="stylesheet" href="Style.css">
     <link rel="shortcut icon" type="imagex/png" href="LogoCabeçalho-_1_.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
-
+    
     <header>
         <div id="nomeSite_btnMenu">
 
@@ -56,18 +64,152 @@
             </form>
         </div>
         <div id="Login_CEP">
+            <a class="Link-Login" href="Login.html">
             <div id="Login">
                 <img id="imgLogin" src="https://i.ibb.co/XWmbxmS/Avatar-1.png" alt="Avatar-1" border="0">
                 <input id="btnLogin" type="button" value="Entrar">
             </div>
+            </a>
             <div id="divCEP">
-                <input id="btnCEP" type="button" value="Informe seu CEP">
+                <input id="btnCEP" type="text" placeholder="Digite seu CEP">
             </div>
         </div>
     </header>
 
     
-    <!-- Restante do conteúdo do site aqui -->
+   
+    <!-- Restante do conteúdo do site aqui --> 
+
+    <h2 style="text-align: center; padding: 10px; ">Compre os melhores produtos de informática para você <br> ou sua empresa <br> </h2>
+    <style>
+
+    .carousel-container {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .category {
+        width: 200px; /* Largura das categorias */
+        height: 150px; /* Altura das categorias */
+        background-color: #f0f0f0; /* Cor de fundo das categorias */
+        border: 1px solid #ddd; /* Borda das categorias */
+        border-radius: 5px; /* Bordas arredondadas das categorias */
+        display: flex; /* Usa um layout flexível */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o espaço disponível */
+        background-position: center; /* Centraliza a imagem de fundo */
+        background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+        border: solid #f57600;
+        border: 2px;
+    }
+    
+    /* Adicione a imagem de fundo para cada categoria */
+.category:nth-child(1){
+        background-image: url('');
+    }
+.category:nth-child(2){
+        background-image: url('');
+    }
+.category:nth-child(3){
+        background-image: url('');
+    }
+.category:nth-child(4){
+        background-image: url('');
+    }
+    /* Adicione mais categorias conforme necessário */
+</style>
+
+
+
+<div class="carousel-container">
+    <div class="category">perifericos
+        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/N3TFBsL/Perifericos.png" alt="Perifericos" border="0">
+    </div>
+    <div class="category">computadores
+        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/yN4dQWX/Computadores-1.png" alt="Computadores" border="0">
+    </div>
+    <div class="category">memória
+        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/tPnkrtK/Memorias.png" alt="Memorias" border="0">
+    </div>
+    <div class="category">monitor
+        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/zQBk243/Monitor.png" alt="Monitor" border="0">
+    </div>
+    <!-- Adicione mais categorias conforme necessário -->
+</div>
+
+<!-- Adicione o link para o arquivo JavaScript do jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Adicione o link para o arquivo JavaScript do Slick Carousel -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.carousel-container').slick({
+            slidesToShow: 3, // Número de categorias visíveis ao mesmo tempo
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000, // Tempo de exibição de cada categoria em milissegundos
+            infinite: true
+        });
+    });
+</script>
+<p class="marcar">Confira os melhores de cada marcar que está aqui abaixo</p>
+<style>
+    /* Estilo para o texto de desconto */
+    .discount-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: red;
+        opacity: 0;
+        animation: moveText 2s linear infinite;
+    }
+
+    /* Animação para mover o texto */
+    @keyframes moveText {
+        0% { opacity: 0; transform: translate(-50%, -50%); }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { opacity: 0; transform: translate(-50%, -50%); }
+    }
+</style>
+</head>
+
+
+<div class="discount-text">Desconto imperdível em todos os sites!</div>
+<br>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="https://i.ibb.co/ZzwD0dB/R-4.jpg" alt="Imagem 1">
+      </div>
+      <div class="col">
+        <img src="https://i.ibb.co/sgN17rq/R-5.jpg" alt="Imagem 2">
+      </div>
+      <div class="col">
+        <img src="https://i.ibb.co/ygTM0Dw/0d222d04-e60e-44e1-9e73-652b6315b253.png" alt="Imagem 3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="https://i.ibb.co/0CXQbM1/R-6.jpg" alt="Imagem 4">
+      </div>
+      <div class="col">
+        <img src="https://i.ibb.co/XZnP6fx/OIP-8.jpg" alt="Imagem 5">
+      </div>
+      <div class="col">
+        <img src="https://i.ibb.co/2KmCc10/R-7.jpg" alt="Imagem 6">
+      </div>
+    </div>
+  </div>
+  
 
 </body>
 </html>
+   
+   
+
+
