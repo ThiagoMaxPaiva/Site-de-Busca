@@ -64,6 +64,18 @@ ul li a{
     box-shadow: 0 0 2px black;
 }
 
+.rodape{
+    
+        background-color: #F98101;
+        color: #ddd;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    
+}
 #Menu:hover #Categoria{
     display: block;
 
