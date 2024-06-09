@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>site de buscar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
        <!-- Adicione o link para o arquivo JavaScript do jQuery -->
        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
        <!-- Adicione o link para o arquivo JavaScript do Slick Carousel -->
@@ -14,6 +15,7 @@
     <link rel="shortcut icon" type="imagex/png" href="LogoCabeçalho-_1_.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="js.js">
 </head>
 <body>
     
@@ -42,12 +44,15 @@
             </div>
         </div>
         <div class="search-container">
-            <form action="#" method="get">
+            <form action="results.html" method="get" id="searchFrom">
                 <div id="divBusca">
-                    <label id="campoBusca" for="campoBusca">Buscar:</label>
-                    <input id="textBusca" type="text" id="campoBusca" name="q" placeholder="Digite aqui" maxlength="80"
-                    style="top: -5px; left: 10px;">
+                  <input type="text" id="searchTerm" name="searchTerm" placeholder="Digite o termo de busca" maxlength="80"
+                  style="top: -5px; left: 10px;">
+                  <button type="submit">Buscar</button>
                 </div>
+                <script src="js.js"></script>
+                
+               
                 
                 <div id="divCategoria">
                 <label id="textCategoria" for="categoria">Categoria:</label>
@@ -59,12 +64,12 @@
                     <!-- Adicione mais opções de categoria conforme necessário -->
                 </select>
 
-                <input id="btnBusca" type="submit" value="Buscar">
+                
                 </div>
             </form>
         </div>
         <div id="Login_CEP">
-            <a class="Link-Login" href="Login.php">
+            <a class="Link-Login" href="logi.html">
             <div id="Login">
                 <img id="imgLogin" src="https://i.ibb.co/XWmbxmS/Avatar-1.png" alt="Avatar-1" border="0">
                 <input id="btnLogin" type="button" value="Entrar">
@@ -117,16 +122,20 @@
 <div class="carousel-container">
 
     <div class="category">perifericos
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/N3TFBsL/Perifericos.png" alt="Perifericos" border="0">
+      <a href="perifericos.html">  <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/N3TFBsL/Perifericos.png" alt="Perifericos" border="0">
+      </a>
     </div>
     <div class="category">computadores
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/yN4dQWX/Computadores-1.png" alt="Computadores" border="0">
+     <a href="computadores.html"><img style="position: relative; bottom: 44%;" src="https://i.ibb.co/yN4dQWX/Computadores-1.png" alt="Computadores" border="0">
+     </a>
     </div>
     <div class="category">memória
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/tPnkrtK/Memorias.png" alt="Memorias" border="0">
+      <a href="memoria.html"><img style="position: relative; bottom: 44%;" src="https://i.ibb.co/tPnkrtK/Memorias.png" alt="Memorias" border="0">
+      </a>
     </div>
     <div class="category">monitor
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/zQBk243/Monitor.png" alt="Monitor" border="0">
+     <a href="monitor.html"> <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/zQBk243/Monitor.png" alt="Monitor" border="0">
+     </a>
     </div>
 
     
@@ -539,6 +548,15 @@
     </li>
   
   </ul>
+  
+<script>
+  document.getElementById('search-input').addEventListener('submit', function (event){
+    event.preventDefault();
+    const productId = document.getElementById('search-input').value;
+      // Redirecionar para a página de resultados com o ID do produto na URL
+      window.location.href = `results.html?productId=${productId}`;
+})
+</script> 
   
   <div style="margin: 50px 0; display: flex; align-items: center; justify-content: center; width: 100%">
   
