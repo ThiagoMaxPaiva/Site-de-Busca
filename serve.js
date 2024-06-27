@@ -83,9 +83,10 @@ app.get('/search', async (req, res) => {
     </style>
 </head>
 <body>
-    <h1>Resultados da Busca</h1>
+    
     <div id="products">
         ${products.map(product => `
+          <h1> melhor produtos para ${searchTerm}</h1>
         <div class="product">
             <h2>${product.name}</h2>
             <p>Menor Preço: R$ ${product.price.toFixed(2)}</p>
