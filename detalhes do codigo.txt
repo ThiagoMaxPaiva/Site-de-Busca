@@ -1,3 +1,9 @@
+antes de tudo instale o node no seu computador e rode o seguinte comando na pasta principal
+npm initi
+npm start
+npm install express puppeteer-extra puppeteer-extra-plugin-stealth puppeteer
+
+
 const express = require('express');
 const puppeteer = require('puppeteer-extra');
 const stealth = require('puppeteer-extra-plugin-stealth');
