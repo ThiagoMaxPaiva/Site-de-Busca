@@ -285,4 +285,11 @@ Resumo
 O usuário faz uma requisição GET para /search com um termo de busca.
 O servidor usa Puppeteer para abrir o site Bondfaro, realizar a busca e extrair os resultados.
 Os resultados são organizados em um arquivo HTML.
+
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <!-- Adicione o link para o arquivo JavaScript do jQuery -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <!-- Adicione o link para o arquivo JavaScript do Slick Carousel -->
+       <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 O arquivo HTML é enviado de volta como resposta para o cliente.
