@@ -20,7 +20,7 @@ app.get('/search', async (req, res) => {
     const searchTerm = req.query.searchTerm;
 
     if (!searchTerm) {
-        return res.status(400).send('Search term is required');
+        return res.status(400).send('digite o campo de pesquisa');
     }
 
     const browser = await puppeteer.launch({
@@ -48,7 +48,7 @@ app.get('/search', async (req, res) => {
         const productCards = document.querySelectorAll('.ProductCard_ProductCard_Inner__gapsh');
         const productList = [];
         productCards.forEach((card, index) => {
-            if (index < 5) {
+            if (index < 8) {
                 const name = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_DesktopLabelSAtLarge__wWsED.ProductCard_ProductCard_Name__U_mUQ')?.innerText;
                 const priceText = card.querySelector('.Text_Text__ARJdp.Text_MobileHeadingS__HEz7L')?.innerText;
                 const price = parseFloat(priceText.replace('R$', '').replace(/\./g, '').replace(',', '.')); // Converte o preço para número, removendo separadores de milhar e substituindo vírgula por ponto
@@ -113,6 +113,8 @@ app.get('/search', async (req, res) => {
 </head>
 <body>
     <h1>Ofertas para ${product.name}</h1>
+    <img src="${product.imageSrc}" alt="${product.name}">
+    <h2>  </h2>
     <div id="offers">
         ${offerCards.map(offer => `
         <div class="offer">
@@ -136,13 +138,14 @@ app.get('/search', async (req, res) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados da Busca</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/estilos.css"> 
+    
 </head>
 <body>
     <h1>Resultados da Busca</h1>
-    <div id="products">
+    <div id="produtos">
         ${products.map(product => `
-        <div class="product">
+        <div class="produto">
             <h2>${product.name}</h2>
             <p>Ranking: ${product.rank}</p>
             <p>Menor Preço: R$ ${product.price.toFixed(2)}</p>
