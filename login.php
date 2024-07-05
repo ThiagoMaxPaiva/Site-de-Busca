@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if((!isset($_SESSION['id']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['id']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+    $logado = $_SESSION['id'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

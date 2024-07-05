@@ -12,6 +12,8 @@
         $confirmar = $_POST['confirmar-senha'];
 
         $result = mysqli_query($conexao, "INSERT INTO usuarios(id,senha,confirmar) VALUES('$usuario','$senha','$confirmar')");
+
+        header('Location: login.php');
     }
 ?>
 <!DOCTYPE html>
