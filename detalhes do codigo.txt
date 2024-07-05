@@ -1,0 +1,295 @@
+antes de tudo instale o node no seu computador e rode o seguinte comando na pasta principal
+npm initi
+npm start
+npm install express puppeteer-extra puppeteer-extra-plugin-stealth puppeteer
+
+
+const express = require('express');
+const puppeteer = require('puppeteer-extra');
+const stealth = require('puppeteer-extra-plugin-stealth');
+const fs = require('fs');
+const path = require('path');
+
+express: Framework para criar servidores web em Node.js.
+puppeteer: Biblioteca para controle de navegadores (Chrome/Chromium) via código.
+puppeteer-extra: Uma versão extendida do Puppeteer com suporte a plugins.
+stealth: Plugin que ajuda a evitar a detecção do Puppeteer em sites.
+fs: Módulo de manipulação de sistema de arquivos.
+path: Módulo para trabalhar com caminhos de arquivos e diretórios.
+Configuração do Puppeteer
+javascript
+
+puppeteer.use(stealth());
+Adiciona o plugin stealth ao Puppeteer para evitar detecção.
+Criação do Servidor Express
+javascript
+Copiar código
+const app = express();
+app.use(express.static('public'));
+app: Instância do servidor Express.
+app.use(express.static('public')): Servir arquivos estáticos da pasta public.
+Rota de Busca
+javascript
+Copiar código
+app.get('/search', async (req, res) => {
+    const searchTerm = req.query.searchTerm;
+
+    if (!searchTerm) {
+        return res.status(400).send('Search term is required');
+    }
+
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu'
+        ]
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1366, height: 768 });
+
+    const url = 'https://www.bondfaro.com.br/';
+    await page.goto(url, { waitUntil: 'networkidle2' });
+
+    await page.type('.AutoCompleteStyle_input__WAC2Y', searchTerm);
+    await page.click('.AutoCompleteStyle_submitButton__VwVxN');
+    await page.waitForNavigation({ waitUntil: 'networkidle2' });
+
+    const products = await page.evaluate(() => {
+        const productCards = document.querySelectorAll('.ProductCard_ProductCard_Inner__gapsh');
+        const productList = [];
+        productCards.forEach((card, index) => {
+            if (index < 5) {
+                const name = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_DesktopLabelSAtLarge__wWsED.ProductCard_ProductCard_Name__U_mUQ')?.innerText;
+                const priceText = card.querySelector('.Text_Text__ARJdp.Text_MobileHeadingS__HEz7L')?.innerText;
+                const price = parseFloat(priceText.replace('R$', '').replace(/\./g, '').replace(',', '.')); // Converte o preço para número, removendo separadores de milhar e substituindo vírgula por ponto
+
+                const imageSrc = card.querySelector('img')?.getAttribute('src');
+                const link = card.querySelector('a')?.getAttribute('href');
+                
+                let bestMerchant = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_MobileLabelSAtLarge__m0whD.ProductCard_ProductCard_BestMerchant__JQo_V')?.innerText;
+                if (!bestMerchant) {
+                    bestMerchant = card.querySelector('.Text_Text__ARJdp.Text_MobileParagraphS__mbPGc.ProductCard_ProductCard_Link__vMbJq')?.innerText;
+                }
+                
+                const installment = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_MobileLabelSAtLarge__m0whD.ProductCard_ProductCard_Installment__XZEnD')?.innerText;
+                productList.push({ name, price, imageSrc, link, bestMerchant, installment });
+            }
+        });
+
+        productList.sort((a, b) => a.price - b.price);
+
+        return productList;
+    });
+
+    const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca</title>
+    <style>
+        .product {
+            margin-bottom: 20px;
+        }
+        .product img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="products">
+        ${products.map(product => `
+          <h1> melhor produtos para ${searchTerm}</h1>
+        <div class="product">
+            <h2>${product.name}</h2>
+            <p>Menor Preço: R$ ${product.price.toFixed(2)}</p>
+            <p>Parcelamento: ${product.installment}</p>
+            <p>Melhor Vendedor: ${product.bestMerchant || 'Não disponível'}</p>
+            <a href="${product.link}" target="_blank">
+                <img src="${product.imageSrc}" alt="${product.name}">
+            </a>
+        </div>
+        `).join('')}
+    </div>
+</body>
+</html>
+`;
+
+    const outputDir = path.join(__dirname, 'output');
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir);
+    }
+
+    const filePath = path.join(outputDir, 'resultados.html');
+    fs.writeFileSync(filePath, htmlContent);
+
+    await browser.close();
+
+    res.sendFile(filePath);
+});
+Recebendo o termo de busca:
+
+javascript
+Copiar código
+const searchTerm = req.query.searchTerm;
+
+if (!searchTerm) {
+    return res.status(400).send('Search term is required');
+}
+Obtém o termo de busca dos parâmetros da URL (req.query.searchTerm).
+Se o termo de busca não for fornecido, retorna um erro 400.
+Configuração do Puppeteer:
+
+javascript
+Copiar código
+const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu'
+    ]
+});
+
+const page = await browser.newPage();
+await page.setViewport({ width: 1366, height: 768 });
+Inicia o navegador em modo headless (sem interface gráfica) com algumas opções de configuração.
+Cria uma nova página e define o tamanho da janela.
+Navegação e Interação com o Site:
+
+javascript
+Copiar código
+const url = 'https://www.bondfaro.com.br/';
+await page.goto(url, { waitUntil: 'networkidle2' });
+
+await page.type('.AutoCompleteStyle_input__WAC2Y', searchTerm);
+await page.click('.AutoCompleteStyle_submitButton__VwVxN');
+await page.waitForNavigation({ waitUntil: 'networkidle2' });
+Acessa a URL do site de busca (bondfaro.com.br).
+Digita o termo de busca na barra de pesquisa e clica no botão de busca.
+Espera a navegação terminar.
+Extração de Dados:
+
+javascript
+Copiar código
+const products = await page.evaluate(() => {
+    const productCards = document.querySelectorAll('.ProductCard_ProductCard_Inner__gapsh');
+    const productList = [];
+    productCards.forEach((card, index) => {
+        if (index < 5) {
+            const name = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_DesktopLabelSAtLarge__wWsED.ProductCard_ProductCard_Name__U_mUQ')?.innerText;
+            const priceText = card.querySelector('.Text_Text__ARJdp.Text_MobileHeadingS__HEz7L')?.innerText;
+            const price = parseFloat(priceText.replace('R$', '').replace(/\./g, '').replace(',', '.')); // Converte o preço para número, removendo separadores de milhar e substituindo vírgula por ponto
+
+            const imageSrc = card.querySelector('img')?.getAttribute('src');
+            const link = card.querySelector('a')?.getAttribute('href');
+             
+            let bestMerchant = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_MobileLabelSAtLarge__m0whD.ProductCard_ProductCard_BestMerchant__JQo_V')?.innerText;
+            if (!bestMerchant) {
+                bestMerchant = card.querySelector('.Text_Text__ARJdp.Text_MobileParagraphS__mbPGc.ProductCard_ProductCard_Link__vMbJq')?.innerText;
+            }
+             
+            const installment = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_MobileLabelSAtLarge__m0whD.ProductCard_ProductCard_Installment__XZEnD')?.innerText;
+            productList.push({ name, price, imageSrc, link, bestMerchant, installment });
+        }
+    });
+
+    productList.sort((a, b) => a.price - b.price);
+
+    return productList;
+});
+Extrai informações dos produtos na página de resultados.
+Limita a extração aos primeiros 5 produtos.
+Organiza os produtos em ordem crescente de preço.
+Geração do HTML de Resposta:
+
+javascript
+Copiar código
+const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca</title>
+    <style>
+        .product {
+            margin-bottom: 20px;
+        }
+        .product img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+php
+Copiar código
+<div id="products">
+    ${products.map(product => `
+      <h1> melhor produtos para ${searchTerm}</h1>
+    <div class="product">
+        <h2>${product.name}</h2>
+        <p>Menor Preço: R$ ${product.price.toFixed(2)}</p>
+        <p>Parcelamento: ${product.installment}</p>
+        <p>Melhor Vendedor: ${product.bestMerchant || 'Não disponível'}</p>
+        <a href="${product.link}" target="_blank">
+            <img src="${product.imageSrc}" alt="${product.name}">
+        </a>
+    </div>
+    `).join('')}
+</div>
+</body>
+</html>
+`;
+csharp
+Copiar código
+const outputDir = path.join(__dirname, 'output');
+if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
+}
+
+const filePath = path.join(outputDir, 'resultados.html');
+fs.writeFileSync(filePath, htmlContent);
+
+await browser.close();
+
+res.sendFile(filePath);
+perl
+Copiar código
+
+- Cria o conteúdo HTML para exibir os resultados da busca.
+- Salva o conteúdo HTML em um arquivo no diretório `output`.
+- Fecha o navegador Puppeteer.
+- Envia o arquivo HTML como resposta para o cliente.
+
+### Inicialização do Servidor
+
+```javascript
+const port = 3000;
+app.listen(port, () => {
+ console.log(`Server running at http://localhost:${port}`);
+});
+Inicia o servidor Express na porta 3000 e exibe uma mensagem no console.
+Resumo
+O usuário faz uma requisição GET para /search com um termo de busca.
+O servidor usa Puppeteer para abrir o site Bondfaro, realizar a busca e extrair os resultados.
+Os resultados são organizados em um arquivo HTML.
+
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <!-- Adicione o link para o arquivo JavaScript do jQuery -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <!-- Adicione o link para o arquivo JavaScript do Slick Carousel -->
+       <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+O arquivo HTML é enviado de volta como resposta para o cliente.
