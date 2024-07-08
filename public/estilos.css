@@ -29,7 +29,7 @@ h1 {
     width: 250px; /* Tamanho fixo para manter a consistência */
     text-align: center;
 }
-.produto:click
+
 
 .produto img {
     max-width: 100%;
@@ -39,18 +39,27 @@ h1 {
 
 .produto h2 {
     font-size: 18px;
-    color: #555;
+    color: #020202;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .produto p {
     margin: 5px 0;
-    color: #777;
+    color: #000000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .produto a {
     text-decoration: none;
     color: #007bff;
     transition: color 0.2s;
+}
+.rodape{
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 15px;
+    border: 1px;
+    
 }
 
 .produto a:hover {
