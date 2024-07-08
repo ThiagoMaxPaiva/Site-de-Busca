@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+// Checa se o usuário está logado e armazena o nome do usuário em uma variável
+$usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+        ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,6 +20,45 @@
     <link rel="shortcut icon" type="imagex/png" href="LogoCabeçalho-_1_.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <style>
+
+      .Nav-login{
+        background: transparent;
+
+        text-decoration: none;
+
+        border: none;
+
+        cursor:pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #botao-login{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+
+
+        width: 120px;
+        height: 40px;
+
+        text-decoration: none;
+
+        border: none;
+
+        cursor:pointer;
+        
+        background-color: white;
+        border-radius: 10px;
+
+        color: #333;
+      }
+    </style>
 </head>
 <body>
     
@@ -74,6 +119,22 @@
                 <input id="btnCEP" type="text" placeholder="Digite seu CEP">
             </div>
         </div>
+        
+    <nav class="Nav-login">
+        <ul>
+            <li id="botao-login">
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <span>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
+                <?php else: ?>
+                  <img id="imgLogin" src="https://i.ibb.co/XWmbxmS/Avatar-1.png" alt="Avatar-1" border="0">
+                    <a href="login.php">Entrar</a>
+                <?php endif; ?>
+            </li>
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <li><a href="logout.php">Logout</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
     </header>
 
     

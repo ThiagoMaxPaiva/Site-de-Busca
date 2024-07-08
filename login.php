@@ -1,12 +1,30 @@
 <?php
-    session_start();
-    if((!isset($_SESSION['id']) == true) and (!isset($_SESSION['senha']) == true))
-    {
-        unset($_SESSION['id']);
-        unset($_SESSION['senha']);
-        header('Location: login.php');
+session_start();
+include 'config.php'; // Inclua seu arquivo de conexão com o banco de dados
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['usuario'];
+    $password = $_POST['senha'];
+
+    // Verificar se username e password são strings
+    if (!is_string($username) || !is_string($password)) {
+        die("Erro: username e password devem ser strings");
     }
-    $logado = $_SESSION['id'];
+
+    // Verificação no banco de dados
+    $query = "SELECT * FROM usuarios WHERE id = '$username' AND senha = '$password'";
+    $stmt = $conexao->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $_SESSION['usuario'] = $username;
+        header("Location: SiteDeBusca.php");
+        exit();
+    } else {
+        echo "Credenciais inválidas.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,11 +36,11 @@
     <title>Faça Login</title>
 </head>
 <body>
-    <form action="testeLogin.php" method="POST">
+    <form action="login.php" method="POST">
     <div class="BordaCima">
         <div class="Borda-lado-direito">
         <img id="Logo" src="https://i.ibb.co/4Js9pFg/Logo-Branca.png" alt="Logo-Branca" border="0">
-        <h3><a href="SiteDeBusca.html" class="Nome-Logo">Nome do Site</a></h3>
+        <h3><a href="SiteDeBusca.html" class="Nome-Logo">T.I Busca</a></h3>
         </div>
         <div class="Borda-lado-esquerdo">
             <a href="#" class="Borda-lado-esquerdo-btn">precisa de ajuda ?</a>
@@ -44,7 +62,7 @@
                         <label for="senha">Sanha</label>
                         <input type="password" name="senha" placeholder="Senha">
                     </div>
-                    <input class="btnLogin" type="submit" name="submit" id="submit">
+                    <input class="btnLogin" type="submit" name="submit" id="submit" value="Entrar">
                     <p class="Criar-Conta">Ainda não tem uma conta? <a href="Cadastro.php">Criar conta</a></p>
             </div>
         </div>
