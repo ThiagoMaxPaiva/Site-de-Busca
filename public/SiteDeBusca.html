@@ -42,11 +42,11 @@
             </div>
         </div>
         <div class="search-container">
-            <form action="#" method="get">
-                <div id="divBusca">
-                    <label id="campoBusca" for="campoBusca">Buscar:</label>
-                    <input id="textBusca" type="text" id="campoBusca" name="q" placeholder="Digite aqui" maxlength="80"
-                    style="top: -5px; left: 10px;">
+          <div class="search-container">
+            <form action="/search" method="get">
+              <label for="searchTerm">termo de pesquisa:</label>
+              <input type="text" id="searchTerm" name="searchTerm" required>
+              <button type="submit">Search</button>
                 </div>
                 
                 <div id="divCategoria">
@@ -118,18 +118,22 @@
 
 <div class="carousel-container">
 
-    <div class="category">perifericos
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/N3TFBsL/Perifericos.png" alt="Perifericos" border="0">
-    </div>
-    <div class="category">computadores
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/yN4dQWX/Computadores-1.png" alt="Computadores" border="0">
-    </div>
-    <div class="category">memória
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/tPnkrtK/Memorias.png" alt="Memorias" border="0">
-    </div>
-    <div class="category">monitor
-        <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/zQBk243/Monitor.png" alt="Monitor" border="0">
-    </div>
+  <div class="category">perifericos
+    <a href="http://localhost:3000/categoria/perifericos">  <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/N3TFBsL/Perifericos.png" alt="Perifericos" border="0">
+    </a>
+  </div>
+  <div class="category">computadores
+   <a href="http://localhost:3000/categoria/computador"><img style="position: relative; bottom: 44%;" src="https://i.ibb.co/yN4dQWX/Computadores-1.png" alt="Computadores" border="0">
+   </a>
+  </div>
+  <div class="category">memória
+    <a href="http://localhost:3000/categoria/memoriaram"><img style="position: relative; bottom: 44%;" src="https://i.ibb.co/tPnkrtK/Memorias.png" alt="Memorias" border="0">
+    </a>
+  </div>
+  <div class="category">monitor
+   <a href="http://localhost:3000/categoria/monitor"> <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/zQBk243/Monitor.png" alt="Monitor" border="0">
+   </a>
+  </div>
     <div class="category">Processadores
       <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/L60gfPc/Processadores.png" alt="Processadores" border="0">
   </div>
