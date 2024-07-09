@@ -23,14 +23,14 @@ puppeteer.use(stealth());
 Adiciona o plugin stealth ao Puppeteer para evitar detecção.
 Criação do Servidor Express
 javascript
-Copiar código
+
 const app = express();
 app.use(express.static('public'));
 app: Instância do servidor Express.
 app.use(express.static('public')): Servir arquivos estáticos da pasta public.
 Rota de Busca
 javascript
-Copiar código
+
 app.get('/search', async (req, res) => {
     const searchTerm = req.query.searchTerm;
 
@@ -149,7 +149,7 @@ Se o termo de busca não for fornecido, retorna um erro 400.
 Configuração do Puppeteer:
 
 javascript
-Copiar código
+
 const browser = await puppeteer.launch({
     headless: true,
     args: [
@@ -168,7 +168,7 @@ Cria uma nova página e define o tamanho da janela.
 Navegação e Interação com o Site:
 
 javascript
-Copiar código
+
 const url = 'https://www.bondfaro.com.br/';
 await page.goto(url, { waitUntil: 'networkidle2' });
 
@@ -181,7 +181,7 @@ Espera a navegação terminar.
 Extração de Dados:
 
 javascript
-Copiar código
+
 const products = await page.evaluate(() => {
     const productCards = document.querySelectorAll('.ProductCard_ProductCard_Inner__gapsh');
     const productList = [];
@@ -214,7 +214,7 @@ Organiza os produtos em ordem crescente de preço.
 Geração do HTML de Resposta:
 
 javascript
-Copiar código
+
 const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -234,7 +234,7 @@ const htmlContent = `
 </head>
 <body>
 php
-Copiar código
+
 <div id="products">
     ${products.map(product => `
       <h1> melhor produtos para ${searchTerm}</h1>
@@ -253,7 +253,7 @@ Copiar código
 </html>
 `;
 csharp
-Copiar código
+
 const outputDir = path.join(__dirname, 'output');
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
@@ -266,7 +266,7 @@ await browser.close();
 
 res.sendFile(filePath);
 perl
-Copiar código
+
 
 - Cria o conteúdo HTML para exibir os resultados da busca.
 - Salva o conteúdo HTML em um arquivo no diretório `output`.
