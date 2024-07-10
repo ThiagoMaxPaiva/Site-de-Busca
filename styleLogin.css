@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+body{
+    margin: 0;
+
+    font-family: "Outfit", sans-serif;
+
+    background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(249,129,1,0.3981967787114846) 100%);
+
+}
+
+.BordaCima{
+    background: linear-gradient(180deg, rgba(249,129,1,1) 0%, rgba(249,129,1,0.7511379551820728) 100%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 5vh;
+}
+
+.Borda-lado-direito{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    color: white;
+
+    height: 4vh;
+}
+
+.Borda-lado-direito > img{
+    width: 2vw;
+}
+
+.Borda-lado-esquerdo{
+    color: white;
+}
+
+.Borda-lado-esquerdo-btn{
+    text-decoration: none;
+    color: white;
+}
+
+.Nome-Logo{
+    text-decoration: none;
+
+    color: white;
+}
+
+.main-login{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LadoEsquerdo{
+    width: 50vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.LadoEsquerdo > h1{
+    font-size: 3vw;
+
+    color: #F98101;
+}
+
+.LadoEsquerdo-Imagem{
+    width: 40vw;
+}
+
+.LadoDireito{
+    width: 50vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Cartão-Login{
+    width: 60%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 30px 35px;
+
+    background: #F98101;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.Cartão-Login > h1{
+    color: white;
+    
+    font-weight: 800;
+
+    margin: 0;
+}
+
+.textfield{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin: 10px 0px;
+}
+
+.textfield > input{
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 15px;
+    background: #ffa23f;
+
+    color: white;
+
+    font-size: 12pt;
+
+    box-shadow: 0px 10px 40px #00000056;
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+.textfield > label{
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+.textfield > input::placeholder{
+    color: rgba(245, 245, 245, 0.518)
+}
+
+.btnLogin{
+    width: 60%;
+
+    padding: 16px 0px;
+    margin: 25px;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+
+    text-transform: uppercase;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #F98101;
+
+    cursor: pointer;
+
+    box-shadow: 0px 10px 40px -12px #ffa23f;
+}
+
+.Criar-Conta{
+    width: 50%;
+
+    position: relative;
+    bottom: 20px;
+
+    color: white;
+}
+
+.Criar-Conta > a{
+    text-decoration: none;
+    
+    color: #ffffff;
+}
+
+.Criar-Conta > a:hover{
+    color: #333;
+}
+
+footer {
+    background-color: #333; 
+    color: #fff;
+    padding: 20px; 
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline; 
+}
+
+.footer-bottom {
+    margin-top: 20px; 
+    border-top: 1px solid #666; 
+    padding-top: 10px;
+    font-size: 0.8em;
+}

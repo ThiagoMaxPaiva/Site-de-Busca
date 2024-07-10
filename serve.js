@@ -26,20 +26,20 @@ categorias.forEach(categoria => {
                 '--disable-setuid-sandbox',
                 '--disable-dev-shm-usage',
                 '--disable-accelerated-2d-canvas',
-                '--disable-gpu'
+                '--disable-gpu' // vai determinar o uso da gpu
             ]
         });
 
         const page = await browser.newPage();
-        await page.setViewport({ width: 1366, height: 768 });
+        await page.setViewport({ width: 1366, height: 768 }); // abrir uma nova quia
 
         const searchUrl = `https://www.bondfaro.com.br/search?q=${encodeURIComponent(categoria)}`;
-        await page.goto(searchUrl, { waitUntil: 'networkidle2' });
+        await page.goto(searchUrl, { waitUntil: 'networkidle2' }); // criar a url
 
         const products = await page.evaluate(() => {
             const productCards = document.querySelectorAll('.ProductCard_ProductCard_Inner__gapsh');
             const productList = [];
-            productCards.forEach((card, index) => {
+            productCards.forEach((card, index) => { //vai pegar os seletores
                 if (index < 8) {
                     const nome = card.querySelector('.Text_Text__ARJdp.Text_MobileLabelXs__dHwGG.Text_DesktopLabelSAtLarge__wWsED.ProductCard_ProductCard_Name__U_mUQ')?.innerText;
                     const preçotexto = card.querySelector('.Text_Text__ARJdp.Text_MobileHeadingS__HEz7L')?.innerText;
@@ -58,7 +58,7 @@ categorias.forEach(categoria => {
                 }
             });
 
-            productList.sort((a, b) => a.preço - b.preço);
+            productList.sort((a, b) => a.preço - b.preço); // vai comparar os preços
 
             productList.forEach((product, index) => {
                 product.rank = index + 1;
@@ -69,9 +69,9 @@ categorias.forEach(categoria => {
 
         const outputDir = path.join(__dirname, 'output');
         if (!fs.existsSync(outputDir)) {
-            fs.mkdirSync(outputDir);
+            fs.mkdirSync(outputDir); // determinar o caminho 
         }
-
+//criar um html
         const htmlContent = `
         <!DOCTYPE html>
         <html lang="pt-br">
@@ -79,7 +79,7 @@ categorias.forEach(categoria => {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</title>
-            <link rel="stylesheet" href="/estilos.css">
+            <link rel="stylesheet" href="/estilos.css"> 
         </head>
         <body>
             <h1>${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h1>
@@ -97,7 +97,11 @@ categorias.forEach(categoria => {
                 </div>
                 `).join('')}
             </div>
-            
+             <footer class="rodape">
+    <p>confira os melhores produtos de informática hoje mesmo nas melhores lojas</p>
+    <p> este site foi desevolvido por <h1><a href="http://localhost:3000/">T.I Buscar</a></h1>   <br> &copy; todos os direitos reservados <br>
+    Este site tem apenas como objetivo listar os melhores produtos para a sua compra </p>
+  </footer>
           
         </body>
         </html>
@@ -195,8 +199,11 @@ app.get('/search', async (req, res) => {
             </div>
             `).join('')}
         </div>
-        
-       
+         <footer class="rodape">
+    <p>confira os melhores produtos de informática hoje mesmo nas melhores lojas</p>
+    <p> este site foi desevolvido por <h1><a href="http://localhost:3000/">T.I Busca</a></h1>   <br> &copy; todos os direitos reservados <br> 
+    Este site tem apenas como objetivo listar os melhores produtos para a sua compra </p>
+  </footer>
     </body>
     </html>
     `;

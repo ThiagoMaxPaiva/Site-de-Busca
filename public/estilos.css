@@ -36,6 +36,11 @@ h1 {
     border-radius: 8px;
     margin-bottom: 10px;
 }
+.rodape{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+
+}
 
 .produto h2 {
     font-size: 18px;
