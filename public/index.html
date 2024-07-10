@@ -8,6 +8,7 @@
        
     <link rel="Icon" type="imagem/x-icon" href="https://i.ibb.co/MNXz0ST/Logo-Branca.png">
     <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" type="text/css" href="StyleII.css">
     <link rel="shortcut icon" type="imagex/png" href="LogoCabeçalho-_1_.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -41,14 +42,13 @@
         </div>
         <div class="search-container">
             <form action="/search" method="get">
-              <label for="searchTerm">termo de pesquisa:</label>
-              <input type="text" id="searchTerm" name="searchTerm" required>
-              <button type="submit">Search</button>
-                </div>
-                
+              <div id="divBusca">
+                <label id="campoBusca" for="campoBusca">Buscar:</label>
+                <input id="textBusca" type="text" id="campoBusca" name="q" placeholder="Digite aqui" maxlength="80"
+                style="top: -5px; left: 10px;">
+              </div>
                 
                
-                
                 <div id="divCategoria">
                 <label id="textCategoria" for="categoria">Categoria:</label>
                 <select id="categoria" name="categoria">
@@ -59,21 +59,21 @@
                     <!-- Adicione mais opções de categoria conforme necessário -->
                 </select>
 
+                <button id="btnBusca" type="submit">Search</button>
+
                 
                 </div>
             </form>
         </div>
         <div id="Login_CEP">
-            <a class="Link-Login" href="logi.html">
+            <a class="Link-Login" href="login.php">
             <div id="Login">
                 <img id="imgLogin" src="https://i.ibb.co/XWmbxmS/Avatar-1.png" alt="Avatar-1" border="0">
                 <input id="btnLogin" type="button" value="Entrar">
             </div>
-            </a>
-            <div id="divCEP">
-                <input id="btnCEP" type="text" placeholder="Digite seu CEP">
-            </div>
+          </a>
         </div>
+        
     </header>
 
     
@@ -84,7 +84,7 @@
     <style>
 
     .carousel-container {
-        max-width: 800px;
+        max-width: 1000px;
         margin: auto;
     }
 
@@ -128,6 +128,9 @@
      <a href="http://localhost:3000/categoria/monitor"> <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/zQBk243/Monitor.png" alt="Monitor" border="0">
      </a>
     </div>
+    <div class="category">Processadores
+      <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/L60gfPc/Processadores.png" alt="Processadores" border="0">
+    </div>
 
     
 
@@ -141,7 +144,7 @@
 <script>
     $(document).ready(function(){
         $('.carousel-container').slick({
-            slidesToShow: 3, // Número de categorias visíveis ao mesmo tempo
+            slidesToShow: 4, // Número de categorias visíveis ao mesmo tempo
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000, // Tempo de exibição de cada categoria em milissegundos
@@ -154,9 +157,9 @@
 <style>
     /* Estilo para o texto de desconto */
     .discount-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        position: relative;
+        top: 80%;
+        left: 90%;
         transform: translate(-50%, -50%);
         font-size: 24px;
         font-weight: bold;
@@ -178,7 +181,7 @@
 
 <div class="discount-text">Desconto imperdível em todos os sites!</div>
 <br>
-<div class="container">
+<div class="container-lojas">
     <div class="row">
       <div class="col">
         <a href="https://www.amazon.com.br/?tag=msndesktopabk-20&ref=pd_sl_7to86bd2ph_e&adgrpid=1141293728081284&hvadid=71331024009172&hvnetw=o&hvqmt=e&hvbmt=be&hvdev=c&hvlocint=&hvlocphy=116069&hvtargid=kwd-71331371436168:loc-20&hydadcr=26346_11690411">

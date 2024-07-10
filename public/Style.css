@@ -65,6 +65,8 @@ ul li a{
     box-shadow: 0 0 2px black;
 }
 
+
+
 .rodape{
     
         background-color: #ee7809;
@@ -94,12 +96,12 @@ ul li a{
     box-sizing: border-box;
   }
   
-  // variaveis usadas
+  /*variaveis usadas
   font: 'Rubik', sans-serif;
   shadow:  -2px 48px 56px -41px rgba(0,0,0,0.37);
   color: #4d61fc;
   white: #fff;
-  border: #e1e1e1;
+  border: #e1e1e1;*/
   
   .vitrine {
     display: block;
@@ -108,16 +110,15 @@ ul li a{
     text-align: center;
     width: 100%;
   }
-  // corpo do site
+  /* corpo do site*/
   body {
     background: #fff;
-    font-family: $font;
     font-size: 13px;
     margin: 0;
     padding: 0;
   }
   
-  // reseta ul li
+  /* reseta ul li*/
   
   ul {
     padding: 0;
@@ -139,7 +140,7 @@ ul li a{
     }
   }
   .product-item {
-    border: 1px solid $border;
+    border: 1px solid border;
     cursor: pointer;
     margin: 15px 5px;
     max-width: 300px;
@@ -167,10 +168,10 @@ ul li a{
       }
     }
     .product-info-img {
-      border-bottom: 1px solid $border;
+      border-bottom: 1px solid border;
       height: 240px;
       width: 100%;
-      // center image
+      /* center image*/
       align-items: center;
       display: flex;
       justify-content: center;
@@ -189,7 +190,7 @@ ul li a{
         height: 30px;
         margin: 3px 0;
   
-        //limit caracteres text description
+        /*limit caracteres text description*/
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         display: -webkit-box;
@@ -199,7 +200,7 @@ ul li a{
     }
     .price-box {
       align-items: center;
-      border-top: 1px solid $border;
+      border-top: 1px solid border;
       display: flex;
       justify-content: space-between;
       padding: 15px;
@@ -212,14 +213,14 @@ ul li a{
         margin-right: 10px;
       }
       ins {
-        color: $color;
+        color: color;
         font-size: 18px;
         font-weight: bold;
         text-decoration: none; 
       }
   
       .price-info {
-        color: $color;
+        color: color;
         display: block;
         font-weight: bold;
         margin-top: 5px;
@@ -240,13 +241,13 @@ ul li a{
     }
     &:hover {
       transform: translateY(-2px);
-      box-shadow: $shadow;
+      box-shadow: shadow;
     }
    
   }
   
   .btn-buy {
-    background: $color;
+    background: color;
     border: 0;
     color: #fff;
     cursor: pointer;
@@ -413,6 +414,8 @@ input[type="submit"] {
     
 }
 .container {
+    
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -490,6 +493,8 @@ a {
     top: 5px;
     left: 10px;
 
+    width: 100px;
+
     border: 0;
     border-radius: 10px;
 
@@ -509,6 +514,7 @@ a {
 
     width: 1vw;
 }
+
 
 #Login{
     display: flex;
@@ -552,6 +558,12 @@ a {
     cursor: pointer;
 }
 
+#botão-Login{
+  background-color: white;
+
+  width: 120px;
+}
+
 #btnCEP{
     background: transparent;
     background-color: white;
@@ -571,10 +583,8 @@ a {
     background-color: rgb(231, 231, 231);
 }
 
-<<<<<<< HEAD
+HEAD
 .category-computer{
     width: 100%;
     
 }
-=======
->>>>>>> 4114cdc6b2c8cadaff46ded9bf447eb4c8bc579d
