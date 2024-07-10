@@ -97,7 +97,11 @@ categorias.forEach(categoria => {
                 </div>
                 `).join('')}
             </div>
-            
+             <footer class="rodape">
+    <p>confira os melhores produtos de informática hoje mesmo nas melhores lojas</p>
+    <p> este site foi desevolvido por <h1><a href="http://localhost:3000/">T.I Buscar</a></h1>   <br> &copy; todos os direitos reservados <br>
+    Este site tem apenas como objetivo listar os melhores produtos para a sua compra </p>
+  </footer>
           
         </body>
         </html>
@@ -195,8 +199,11 @@ app.get('/search', async (req, res) => {
             </div>
             `).join('')}
         </div>
-        
-       
+         <footer class="rodape">
+    <p>confira os melhores produtos de informática hoje mesmo nas melhores lojas</p>
+    <p> este site foi desevolvido por <h1><a href="http://localhost:3000/">T.I Busca</a></h1>   <br> &copy; todos os direitos reservados <br> 
+    Este site tem apenas como objetivo listar os melhores produtos para a sua compra </p>
+  </footer>
     </body>
     </html>
     `;
