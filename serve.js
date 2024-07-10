@@ -185,7 +185,8 @@ app.get('/search', async (req, res) => {
         <link rel="stylesheet" href="/estilos.css">
     </head>
     <body>
-        <h1>Resultados da Busca</h1>
+        <h1>Resultados da Busca '${searchTerm}'</h1>
+        
         
         <div id="produtos">
             ${products.map(product => `
