@@ -374,6 +374,16 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+.Slogan{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+#Texto-Slogan{
+  font-size: 63px;
+}
+
 #divCategoria{
     display: flex;
     align-items: center;

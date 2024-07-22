@@ -18,22 +18,6 @@
     
     <header>
         <div id="nomeSite_btnMenu">
-
-            <div id="divMenu">
-                <ul id="Menu">
-                    <div id="btnMenu">
-                        <img id="imgMenu" src="https://i.ibb.co/BLcYVL3/hamburger-1.png" alt="hamburger-1" border="0">
-                        <li id="dropdownMenu"><a href="#">Menu</a></li>
-                    </div>
-                    <ul id="Categoria">
-                        <li class="dropdown"><a href="#">monitor</a></li>
-                        <li class="dropdown"><a href="#">memória ram</a></li>
-                        <li class="dropdown"><a href="#">Notebooks</a></li>
-                        <li class="dropdown"><a href="#">perifericos</a></li>
-                        <li class="dropdown"><a href="#">processador</a></li>
-                    </ul>
-                </ul>
-            </div>
             
             <div id="nomeSite">
                 <img id="Logo" src="https://i.ibb.co/4Js9pFg/Logo-Branca.png" alt="Logo-Branca" border="0">
@@ -45,7 +29,7 @@
 
              
 
-              <label for="searchTerm">termo de pesquisa:</label>
+              <label for="searchTerm">Termo de pesquisa:</label>
               <input type="text" id="searchTerm" name="searchTerm" list="sugestões" required>
               <datalist id="sugestões">
                 
@@ -90,26 +74,13 @@
                 <option value="Carregador de notebook positivo"></option>
                 <option value="Processador amd"></option>
               </datalist>
-              <button type="submit">Search</button>
-                </div>
+              <button id="search" type="submit">Search</button>
+                
                 
 
                 
                
-                <div id="divCategoria">
-                <label id="textCategoria" for="categoria">Categoria:</label>
-                <select id="categoria" name="categoria">
-                    <option value="todas">Todas</option>
-                    <option value="categoria1">Categoria 1</option>
-                    <option value="categoria2">Categoria 2</option>
-                    <option value="categoria3">categoria 3</option>
-                    <!-- Adicione mais opções de categoria conforme necessário -->
-                </select>
-
-                <button id="btnBusca" type="submit">Search</button>
-
                 
-                </div>
             </form>
         </div>
         <div id="Login_CEP">
@@ -126,8 +97,6 @@
     
    
     <!-- Restante do conteúdo do site aqui --> 
-
-    <h2 style="text-align: center; padding: 10px; ">Compre os melhores produtos de informática para você <br> ou sua empresa <br> </h2>
     <style>
 
     .carousel-container {
@@ -154,6 +123,14 @@
     
     
 </style>
+
+<div class="Slogan">
+  <img id="Img-Slogan" src="https://i.ibb.co/SJCWrw3/Imagem-Topo.png" alt="Imagem-Topo" border="0" style="max-width: 400px;">
+  <div>
+    <p id="Texto-Slogan"><b>Comparação de preços<br>é no T.I Busca<b></b></p> 
+    <p class="discount-text">Desconto imperdível em todos os sites!</p>
+  </div>  
+</div>
 
 
 
@@ -209,12 +186,12 @@
     /* Estilo para o texto de desconto */
     .discount-text {
         position: relative;
-        top: 80%;
-        left: 90%;
+        top: 90%;
+        left: 50%;
         transform: translate(-50%, -50%);
         font-size: 24px;
         font-weight: bold;
-        color: red;
+        color: #F98101;
         opacity: 0;
         animation: moveText 2s linear infinite;
     }
@@ -230,7 +207,7 @@
 </head>
 
 
-<div class="discount-text">Desconto imperdível em todos os sites!</div>
+
 <br>
 <div class="container-lojas">
     <div class="row">
