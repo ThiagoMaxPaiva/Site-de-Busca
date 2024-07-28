@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result->num_rows > 0) {
         $_SESSION['usuario'] = $username;
-        header("Location: SiteDeBusca.php");
+        header("Location: index.php");
         exit();
     } else {
         echo "Credenciais inválidas.";
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="BordaCima">
         <div class="Borda-lado-direito">
         <img id="Logo" src="https://i.ibb.co/4Js9pFg/Logo-Branca.png" alt="Logo-Branca" border="0">
-        <h3><a href="SiteDeBusca.html" class="Nome-Logo">T.I Busca</a></h3>
+        <h3><a href="index.php" class="Nome-Logo">T.I Busca</a></h3>
         </div>
         <div class="Borda-lado-esquerdo">
             <a href="#" class="Borda-lado-esquerdo-btn">precisa de ajuda ?</a>
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="main-login">
         <div class="LadoEsquerdo">
             <h1>Faça login<br>E descubra as melhores ofertas</h1>
-            <img src="Ilustração-Busca.svg" class="LadoEsquerdo-Imagem" alt="Busca">
+            <img src="https://i.ibb.co/cxTZMgQ/Search.png" class="LadoEsquerdo-Imagem" alt="Busca">
         </div>
         <div class="LadoDireito">
             <div class="Cartão-Login">

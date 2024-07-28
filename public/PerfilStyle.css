@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+body{
+    margin: 0;
+
+    font-family: "Outfit", sans-serif;
+
+    background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(249,129,1,0.3981967787114846) 100%);
+
+}
+
+.BordaCima{
+    background: linear-gradient(180deg, rgba(249,129,1,1) 0%, rgba(249,129,1,0.7511379551820728) 100%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 5vh;
+}
+
+.Borda-lado-direito{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    color: white;
+
+    height: 4vh;
+}
+
+.Borda-lado-direito > img{
+    width: 2vw;
+}
+
+.Borda-lado-esquerdo{
+    color: white;
+}
+
+.Borda-lado-esquerdo-btn{
+    text-decoration: none;
+    color: white;
+}
+
+.Nome-Logo{
+    text-decoration: none;
+
+    color: white;
+}
+
+#Nome-Usuario{
+    font-size: 30px;
+}
+
+.Favoritos{
+    display: flex;
+    justify-content: center;
+
+    background-color: ghostwhite;
+    border-radius: 10px;
+
+    width: 50vw;
+    height: 85vh;
+
+    position: relative;
+    left: 24.2%;
+
+    margin: 10px;
+}
+
+.SeusFavs-Voltar{
+    display: flex;
+    justify-content: space-between;
+
+
+    width: 45vw;
+    font-size: 20px;
+}
+
+footer {
+    background-color: #333; 
+    color: #fff;
+    padding: 20px; 
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline; 
+}
+
+.footer-bottom {
+    margin-top: 20px; 
+    border-top: 1px solid #666; 
+    padding-top: 10px;
+    font-size: 0.8em;
+}

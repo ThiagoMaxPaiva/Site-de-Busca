@@ -51,3 +51,39 @@
 #search:hover{
     background-color: rgb(213, 213, 213)
 }
+
+.Nav-login{
+    background: transparent;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor:pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #botao-login{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+
+    width: 120px;
+    height: 40px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor:pointer;
+    
+    background-color: white;
+    border-radius: 10px;
+
+    color: #333;
+  }
