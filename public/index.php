@@ -210,6 +210,10 @@ $usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
       <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/L60gfPc/Processadores.png" alt="Processadores" border="0">
 
     </div>
+    <div class="category">Kit Upgrade
+      <img style="position: relative; bottom: 44%;" src="https://i.ibb.co/bBMJPr0/Kit.png" alt="Kit" border="0">
+
+    </div>
 
   </div>
 
@@ -309,6 +313,8 @@ $usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
   <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
   
   <h2 class="vitrine"> computadores </h2>
+  <section class="products">
+    <button class="pre-btn"><img src="https://i.ibb.co/H4MPKtS/Seta-Esquerda.png" alt="Seta-Esquerda" border="0"></button>
   <ul class="product-list">
     <li class="product-item">
       <a href="http://localhost:3000/search?q=&searchTerm=pc+game+tmoba&categoria=todas" target="_blank" class="product-link">
@@ -467,7 +473,10 @@ $usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         
       </a>
     </li>
+
+    
   </ul>
+  </section>
   
   <!-- segunda vitrine -->
   <h2 class="vitrine">Memórias</h2>
@@ -630,6 +639,8 @@ $usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
     </li>
   
   </ul>
+
+  
   
 <script>
   document.getElementById('search-input').addEventListener('submit', function (event){

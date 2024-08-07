@@ -30,7 +30,7 @@
         {
             $_SESSION['id'] = $usuario;
             $_SESSION['senha'] = $senha;
-            header('Location: SiteDeBusca.html');
+            header('Location: SiteDeBusca.php');
         }
     }
     else
