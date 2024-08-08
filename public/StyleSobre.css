@@ -1,0 +1,48 @@
+body{
+    color: white;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #ee7809;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #ee7809;
+}
+
+p, ul {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+a {
+    color: #ee7809;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
